@@ -10,13 +10,23 @@ public class Monster extends GameCharacter {
 
 
 	public void hurtCharacter(GameCharacter character) {
-		
+		if (successfulDefense() == false) {
+            this.setHealth(this.getHealth() - 20);
+        }
+            
 	}
 
 	
 	public boolean successfulDefense() {
-		
-		  return true;
+		Random ran = new Random();
+        int defense = ran.nextInt(2);
+        boolean success = false;
+        if (defense == 0) {
+            return false;
+        }
+        else {
+            return true;
+        }
 	}
 
 
