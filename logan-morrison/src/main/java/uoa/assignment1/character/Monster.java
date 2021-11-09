@@ -7,11 +7,14 @@ public class Monster extends GameCharacter {
 	public  Monster(String name) {
 		super(name);
 	}
-
-
+    
+    
 	public void hurtCharacter(GameCharacter character) {
-		if (successfulDefense() == false) {
-            this.setHealth(this.getHealth() - 20);
+        boolean defending = character.successfulDefense();
+		if (defending == false) {
+            int current = character.getHealth();
+            int damage = current - 20;
+            character.setHealth(damage);
         }
             
 	}
@@ -19,16 +22,8 @@ public class Monster extends GameCharacter {
 	
 	public boolean successfulDefense() {
 		Random ran = new Random();
-        int defense = ran.nextInt(2);
-        boolean success = false;
-        if (defense == 0) {
-            return false;
-        }
-        else {
-            return true;
-        }
+        return ran.nextBoolean();
 	}
-
 
 	
 	public String decideMove () {
