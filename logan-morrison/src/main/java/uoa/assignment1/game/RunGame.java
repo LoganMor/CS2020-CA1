@@ -6,6 +6,11 @@ public class RunGame {
 
 	public static void main(String[] args) {
 		
+        int height = Integer.parseInt(args[0]);
+        int width = Integer.parseInt(args[1]);
+        
+        Game game = new Game(height, width);
+        
         while (!gameOver) {
 			//complete the code
 		}
