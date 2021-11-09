@@ -1,6 +1,7 @@
 package uoa.assignment1.game;
 
 import java.util.Scanner;
+
 public class RunGame {
 
 	private static boolean gameOver = false;
