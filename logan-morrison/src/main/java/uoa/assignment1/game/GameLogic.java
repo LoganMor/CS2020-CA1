@@ -29,12 +29,15 @@ public class GameLogic {
 	}
     
     private static void moveRight(GameCharacter character, Map gameMap){
+        String symbol = gameMap.layout[character.row][character.column];
         if (gameMap.layout[0].length - 1 < character.column + 1){
             System.out.println("You can't go right. You lose a move");
         }
+        else if (gameMap.layout[character.row][character.column+1] == symbol){
+            System.out.println("Monster already there so can't move");
+        }
         else {
             int column = character.column;
-            String symbol = gameMap.layout[character.row][character.column];
             character.column = character.column + 1;
             gameMap.layout[character.row][column] = ".";
             gameMap.layout[character.row][character.column] = symbol;
@@ -42,12 +45,15 @@ public class GameLogic {
     }
 	
     private static void moveLeft(GameCharacter character, Map gameMap){
+        String symbol = gameMap.layout[character.row][character.column];
         if (character.column - 1 < 0){
             System.out.println("You can't go left. You lose a move");
         }
+        else if (gameMap.layout[character.row][character.column-1] == symbol){
+            System.out.println("Monster already there so can't move");
+        }
         else {
             int column = character.column;
-            String symbol = gameMap.layout[character.row][character.column];
             character.column = character.column - 1;
             gameMap.layout[character.row][column] = ".";
             gameMap.layout[character.row][character.column] = symbol;
@@ -55,12 +61,15 @@ public class GameLogic {
     }
     
     private static void moveUp(GameCharacter character, Map gameMap){
+        String symbol = gameMap.layout[character.row][character.column];
         if (character.row - 1 < 0){
             System.out.println("You can't go up. You lose a move");
         }
+        else if (gameMap.layout[character.row-1][character.column] == symbol){
+            System.out.println("Monster already there so can't move");
+        }
         else {
             int row = character.row;
-            String symbol = gameMap.layout[character.row][character.column];
             character.row = character.row - 1;
             gameMap.layout[row][character.column] = ".";
             gameMap.layout[character.row][character.column] = symbol;
@@ -68,12 +77,15 @@ public class GameLogic {
     }
     
     private static void moveDown(GameCharacter character, Map gameMap){
+        String symbol = gameMap.layout[character.row][character.column];
         if (gameMap.layout.length - 1 < character.row + 1){
             System.out.println("You can't go down. You lose a move");
         }
+        else if (gameMap.layout[character.row+1][character.column] == symbol){
+            System.out.println("Monster already there so can't move");
+        }
         else {
             int row = character.row;
-            String symbol = gameMap.layout[character.row][character.column];
             character.row = character.row + 1;
             gameMap.layout[row][character.column] = ".";
             gameMap.layout[character.row][character.column] = symbol;

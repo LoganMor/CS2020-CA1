@@ -17,28 +17,28 @@ public GameCharacter characters [];
      initialiseArray();
      
      /* initialise player*/
-     Player player = new Player("player");
+     Player player = new Player("Player");
      player.row = mapHeight - 1;
      player.column = mapWidth - 1;
      characters[0] = player;
      this.layout[player.row][player.column] = "*";
      
      /* initialise monster1 (top right) */
-     Monster monster1 = new Monster("monster1");
+     Monster monster1 = new Monster("Monster1");
      monster1.row = 0;
      monster1.column = mapWidth - 1;
      characters[1] = monster1;
      layout[monster1.row][monster1.column] = "%";
      
      /* initialise monster2 (bottom left) */
-     Monster monster2 = new Monster("monster2");
+     Monster monster2 = new Monster("Monster2");
      monster2.row = mapHeight - 1;
      monster2.column = 0;
      characters[2] = monster2;
      layout[monster2.row][monster2.column] = "%";
      
      /* initialise monster3 (top left) */
-     Monster monster3 = new Monster("monster3");
+     Monster monster3 = new Monster("Monster3");
      monster3.row = 0;
      monster3.column = 0;
      characters[3] = monster3;
