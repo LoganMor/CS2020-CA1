@@ -19,7 +19,9 @@ public class RunGame {
             String roundStr = Integer.toString(round);
             System.out.println("Round " + roundStr);
             Scanner reader = new Scanner(System.in);
-            
+            String input = reader.nextLine();
+            boolean gameOver = game.nextRound(input);
+            System.out.println(gameOver);
 			//complete the code
 		}
 	}

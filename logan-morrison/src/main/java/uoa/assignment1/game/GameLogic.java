@@ -36,6 +36,22 @@ public class GameLogic {
         else if (gameMap.layout[character.row][character.column+1] == symbol){
             System.out.println("Monster already there so can't move");
         }
+        else if (gameMap.layout[character.row][character.column+1] == "%"){
+            for (int x=1; x<gameMap.characters.length; x++){
+                if (gameMap.characters[x].row == character.row && gameMap.characters[x].column == character.column + 1){
+                    character.hurtCharacter(gameMap.characters[x]);
+                    if (gameMap.characters[x].getHealth() <=0){
+                        gameMap.layout[character.row][character.column+1] = "x";
+                    }
+                }
+            }
+        }
+        else if (gameMap.layout[character.row][character.column+1] == "*"){
+            character.hurtCharacter(gameMap.characters[0]);
+        }
+        else if (gameMap.layout[character.row][character.column+1] == "x"){
+            System.out.println("“Character already dead");
+        }
         else {
             int column = character.column;
             character.column = character.column + 1;
@@ -51,6 +67,22 @@ public class GameLogic {
         }
         else if (gameMap.layout[character.row][character.column-1] == symbol){
             System.out.println("Monster already there so can't move");
+        }
+        else if (gameMap.layout[character.row][character.column-1] == "%"){
+            for (int x=1; x<gameMap.characters.length; x++){
+                if (gameMap.characters[x].row == character.row && gameMap.characters[x].column == character.column - 1){
+                    character.hurtCharacter(gameMap.characters[x]);
+                    if (gameMap.characters[x].getHealth() <=0){
+                        gameMap.layout[character.row][character.column-1] = "x";
+                    }
+                }
+            }
+        }
+        else if (gameMap.layout[character.row][character.column-1] == "*"){
+            character.hurtCharacter(gameMap.characters[0]);
+        }
+        else if (gameMap.layout[character.row][character.column-1] == "x"){
+            System.out.println("“Character already dead");
         }
         else {
             int column = character.column;
@@ -68,6 +100,22 @@ public class GameLogic {
         else if (gameMap.layout[character.row-1][character.column] == symbol){
             System.out.println("Monster already there so can't move");
         }
+        else if (gameMap.layout[character.row-1][character.column] == "%"){
+            for (int x=1; x<gameMap.characters.length; x++){
+                if (gameMap.characters[x].row == character.row - 1 && gameMap.characters[x].column == character.column){
+                    character.hurtCharacter(gameMap.characters[x]);
+                    if (gameMap.characters[x].getHealth() <=0){
+                        gameMap.layout[character.row-1][character.column] = "x";
+                    }
+                }
+            }
+        }
+        else if (gameMap.layout[character.row-1][character.column] == "*"){
+            character.hurtCharacter(gameMap.characters[0]);
+        }
+        else if (gameMap.layout[character.row-1][character.column] == "x"){
+            System.out.println("“Character already dead");
+        }
         else {
             int row = character.row;
             character.row = character.row - 1;
@@ -83,6 +131,22 @@ public class GameLogic {
         }
         else if (gameMap.layout[character.row+1][character.column] == symbol){
             System.out.println("Monster already there so can't move");
+        }
+        else if (gameMap.layout[character.row+1][character.column] == "%"){
+            for (int x=1; x<gameMap.characters.length; x++){
+                if (gameMap.characters[x].row == character.row + 1 && gameMap.characters[x].column == character.column){
+                    character.hurtCharacter(gameMap.characters[x]);
+                    if (gameMap.characters[x].getHealth() <=0){
+                        gameMap.layout[character.row+1][character.column] = "x";
+                    }
+                }
+            }
+        }
+        else if (gameMap.layout[character.row+1][character.column] == "*"){
+            character.hurtCharacter(gameMap.characters[0]);
+        }
+        else if (gameMap.layout[character.row+1][character.column] == "x"){
+            System.out.println("“Character already dead");
         }
         else {
             int row = character.row;
