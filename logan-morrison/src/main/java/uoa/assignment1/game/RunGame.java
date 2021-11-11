@@ -21,7 +21,10 @@ public class RunGame {
             Scanner reader = new Scanner(System.in);
             String input = reader.nextLine();
             boolean gameOver = game.nextRound(input);
-            System.out.println(gameOver);
+            game.getMap().printLayout();
+            if (gameOver){
+                System.exit(0);
+            }
 			//complete the code
 		}
 	}

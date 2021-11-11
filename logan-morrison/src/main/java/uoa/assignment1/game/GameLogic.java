@@ -11,20 +11,20 @@ import uoa.assignment1.character.Monster;
 public class GameLogic {
 
 	public static void moveCharacter(String input, Map gameMap, GameCharacter character) {
-        if (input != "up" && input != "down" && input != "right" && input != "left"){
-            System.out.println("Use only keywords up, down, left, right");
-        }
-        else if (input == "right"){
+        if (input.contains("right")){
             moveRight(character, gameMap);
         }
-        else if (input == "left"){
+        else if (input.contains("left")){
             moveLeft(character, gameMap);
         }
-        else if (input == "up"){
+        else if (input.contains("up")){
             moveUp(character, gameMap);
         }
-        else if (input == "down"){
+        else if (input.contains("down")){
             moveDown(character, gameMap);
+        }
+        else /*(input != "up" && input != "down" && input != "right" && input != "left")*/{
+            System.out.println("Use only keywords up, down, left, right");
         }
 	}
     
